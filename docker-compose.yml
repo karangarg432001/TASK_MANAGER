@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  task_manager:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/task_manager
+    ports:
+      - "8000:8000"
+    container_name: task_manager
+    command: python manage.py runserver 0.0.0.0:8000
+    restart: always
+    stdin_open: true
